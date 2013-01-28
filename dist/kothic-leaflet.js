@@ -1,9 +1,9 @@
 L.TileLayer.Kothic = L.TileLayer.Canvas.extend({
     options: {
-        tileSize: 256 * 4,
-        zoomOffset: 2,
-        minZoom: 2,
-        maxZoom: 22,
+        tileSize: 256,
+        zoomOffset: 0,
+        minZoom: 0,
+        maxZoom: 18,
         updateWhenIdle: true,
         unloadInvisibleTiles: true,
         attribution: 'Map data &copy; 2011 OpenStreetMap contributors, Rendering by <a href="http://github.com/kothic/kothic-js">Kothic JS</a>',
