@@ -134,6 +134,7 @@ L.TileLayer.Kothic = L.TileLayer.Canvas.extend({
     _loadScript: function(url) {
         var script = document.createElement('script');
         script.src = url;
+        script.async='async';
         script.charset = 'utf-8';
         document.getElementsByTagName('head')[0].appendChild(script);
         return script;
