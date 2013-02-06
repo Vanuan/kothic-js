@@ -35,11 +35,23 @@
         <a id="hide-button">D</a>
 	<div id="debug">
 		<p>OpenStreetMap data rendered on the browser using <a href="http://github.com/kothic/kothic-js">Kothic JS</a></p>
-		<select id="renderer">
-			<option value="osmosnimki" selected="selected">Osmosnimki (Kothic-JS)</option>
-			<option value="mapnik">OSM (Kothic-JS)</option>
-			<option value="tiles">Osmosnimki (Mapnik)</option>
-		</select>
+                <p>
+                    <label for="mapnik-style">
+                      <input type="radio" name="renderer" value="mapnik"
+                             id="mapnik-style" checked />
+                      OSM (Kothic-JS)
+                    </label>
+                    <br/>
+                    <label for="osmosnimki-style">
+                      <input type="radio" name="renderer" value="osmosnimki" id="osmosnimki-style" />
+                      Osmosnimki (Kothic-JS)
+                    </label>
+                    <br/>
+                    <label for="tiles-style">
+                      <input type="radio" name="renderer" value="tiles" id="tiles-style"/>
+                      Osmosnimki (Mapnik)
+                    </label>
+                </p>
 		<input type="checkbox" id="overlay">Surface overlay</input>
 		<div id="trace">Rendering...</div>
 	</div>
@@ -58,7 +70,7 @@
 		var kothic = new L.TileLayer.Kothic(tilesUrl, {
             minZoom: 0,
             maxZoom: 22,
-            styles: ['osmosnimki']
+            styles: [$("input[name=renderer]:checked").attr("value")]
         });
 
 		var map = new L.Map('map', {
@@ -128,8 +140,8 @@
 		MapCSS.preloadSpriteImage("osmosnimki", "http://osmosnimki.ru/leaf/icons/osmosnimki.png");
 		MapCSS.preloadSpriteImage("mapnik", "styles/mapnik.png");
 
-		$("#renderer").change(function () {
-			switch($("#renderer").val()) {
+		$("input[name=renderer]").change(function () {
+			switch($("input[name=renderer]:checked").attr("value")) {
 				case 'osmosnimki':
 					map.removeLayer(mapnik);
 					kothic.enableStyle('osmosnimki');
