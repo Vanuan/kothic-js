@@ -5,6 +5,29 @@ body {
 html, body, #map {
 	height: 100%;
 }
+
+a#hide-button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    float:right;
+    width:26px;
+    height:26px;
+    top left;
+    width: 20px;
+    height: 20px;
+    background-color: #ddd;
+    margin-top:0px;
+    margin-right:0px;
+    cursor:pointer;
+    color: white;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-top: 4px;
+    font-weight: bold;
+    z-index: 2;
+}
+
 #debug {
 	position: absolute;
 	top: 0;
@@ -15,6 +38,7 @@ html, body, #map {
 	z-index: 10000;
 	font: 12px/1.4 Verdana, sans-serif;
     width: 170px;
+    z-index: 1;
 }
 #trace {
 	margin-top: 10px;
